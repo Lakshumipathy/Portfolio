@@ -6,8 +6,8 @@ const Contact = () => {
         {
             icon: <Mail size={24} />,
             label: 'Email',
-            value: 'rlakshu7@gmail.com',
-            link: 'mailto:rlakshu7@gmail.com'
+            value: 'lakshumipathyr@gmail.com',
+            link: 'mailto:lakshumipathyr@gmail.com'
         },
         {
             icon: <Github size={24} />,
@@ -26,7 +26,7 @@ const Contact = () => {
     return (
         <section id="contact" className="contact">
             <div className="contact-container">
-                <div className="section-header">
+                <div className="section-header reveal">
                     <h2 className="section-title">Get In Touch</h2>
                     <p className="section-subtitle">
                         Feel free to reach out for collaborations or just a friendly chat

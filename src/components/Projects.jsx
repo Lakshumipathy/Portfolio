@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Github } from 'lucide-react';
 import './Projects.css';
 
@@ -27,16 +28,35 @@ const Projects = () => {
         }
     ];
 
+    const gridRef = useRef(null);
+
+    useEffect(() => {
+        const cards = gridRef.current?.querySelectorAll('.project-card');
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('card-visible');
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+        cards?.forEach((card) => observer.observe(card));
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <section id="projects" className="projects">
             <div className="projects-container">
-                <div className="section-header">
+                <div className="section-header reveal">
                     <h2 className="section-title">Featured Projects</h2>
                     <p className="section-subtitle">Some of my recent work and personal projects</p>
                 </div>
-                <div className="projects-grid">
+                <div className="projects-grid" ref={gridRef}>
                     {projects.map((project, index) => (
-                        <div key={index} className="project-card">
+                        <div key={index} className="project-card" style={{ '--delay': `${index * 0.12}s` }}>
+                            <span className="project-number">0{index + 1}</span>
                             <div className="project-category">{project.category}</div>
                             <h3 className="project-title">{project.title}</h3>
                             <p className="project-description">{project.description}</p>
@@ -55,8 +75,8 @@ const Projects = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <Github size={18} />
-                                        <span>Link</span>
+                                        <Github size={16} />
+                                        <span>View Code</span>
                                     </a>
                                 )}
                             </div>

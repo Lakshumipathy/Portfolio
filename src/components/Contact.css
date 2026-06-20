@@ -1,11 +1,27 @@
 .contact {
-    padding: 5rem 2rem;
-    background: var(--bg-primary);
+    padding: 7rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 217, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .contact-container {
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .contact-content {
@@ -15,21 +31,21 @@
     align-items: start;
 }
 
-.contact-info {
-    position: sticky;
-    top: 100px;
-}
+.contact-info { position: sticky; top: 100px; }
 
 .contact-heading {
-    font-size: 2rem;
+    font-size: 1.9rem;
     margin-bottom: 1rem;
     color: var(--text-primary);
+    font-weight: 800;
+    letter-spacing: -0.03em;
 }
 
 .contact-text {
     color: var(--text-secondary);
-    line-height: 1.8;
+    line-height: 1.85;
     margin-bottom: 2rem;
+    font-size: 1rem;
 }
 
 .contact-methods {
@@ -38,14 +54,17 @@
     gap: 1rem;
 }
 
+/* Contact method card */
 .contact-method {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1.5rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
+    padding: 1.3rem 1.5rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
     text-decoration: none;
     transition: all 0.4s ease;
     position: relative;
@@ -58,124 +77,81 @@
     left: 0;
     top: 0;
     height: 100%;
-    width: 4px;
-    background: var(--accent);
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background: linear-gradient(to bottom, var(--accent), var(--accent-purple));
     transform: scaleY(0);
     transition: transform 0.4s ease;
 }
 
-.contact-method:hover::before {
-    transform: scaleY(1);
-}
+.contact-method:hover::before { transform: scaleY(1); }
 
 .contact-method:hover {
-    border-color: var(--accent);
+    border-color: rgba(0, 217, 255, 0.3);
     transform: translateX(8px);
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.25);
+    box-shadow: 0 8px 30px rgba(0, 217, 255, 0.12);
 }
 
+/* Icon */
 .method-icon {
     color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 55px;
-    height: 55px;
-    background: rgba(99, 102, 241, 0.1);
-    border-radius: 10px;
-    transition: all 0.3s ease;
+    width: 52px;
+    height: 52px;
+    background: rgba(0, 217, 255, 0.08);
+    border: 1px solid rgba(0, 217, 255, 0.18);
+    border-radius: 12px;
+    flex-shrink: 0;
+    transition: all 0.35s ease;
 }
 
 .contact-method:hover .method-icon {
-    background: rgba(99, 102, 241, 0.2);
+    background: rgba(0, 217, 255, 0.18);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
     transform: scale(1.1);
 }
 
 .method-label {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     color: var(--text-secondary);
     margin-bottom: 0.2rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 .method-value {
     color: var(--text-primary);
     font-weight: 500;
-}
-
-.contact-form-wrapper {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 3rem;
-    display: flex;
-    align-items: center;
-    min-height: 100%;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.form-group label {
-    color: var(--text-primary);
-    font-weight: 500;
     font-size: 0.95rem;
 }
 
-.form-input {
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 0.9rem 1rem;
-    color: var(--text-primary);
-    font-family: inherit;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-}
-
-.form-input::placeholder {
-    color: var(--text-secondary);
-}
-
-textarea.form-input {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.submit-btn {
+/* Right panel — WhatsApp */
+.contact-form-wrapper {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 22px;
+    padding: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.6rem;
-    padding: 1rem;
-    background: var(--accent);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
-.submit-btn:hover {
-    background: var(--accent-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+.contact-form-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
 .whatsapp-section {
@@ -185,15 +161,15 @@ textarea.form-input {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 0;
 }
 
 .whatsapp-section .contact-heading {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    margin-bottom: 0.75rem;
 }
 
-.whatsapp-section .contact-text {
-    margin-bottom: 2rem;
-}
+.whatsapp-section .contact-text { margin-bottom: 2rem; }
 
 .whatsapp-btn {
     display: inline-flex;
@@ -201,42 +177,26 @@ textarea.form-input {
     justify-content: center;
     gap: 0.6rem;
     padding: 1.1rem 2.5rem;
-    background: #25D366;
+    background: linear-gradient(135deg, #25D366, #128C7E);
     color: white;
     border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 1.05rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: all 0.35s ease;
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.35);
+    letter-spacing: 0.02em;
 }
 
 .whatsapp-btn:hover {
-    background: #20BA5A;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-}
-
-.form-note {
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    text-align: center;
-    font-style: italic;
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 0 60px rgba(37, 211, 102, 0.55), 0 10px 30px rgba(37, 211, 102, 0.3);
 }
 
 @media (max-width: 968px) {
-    .contact {
-        padding: 3rem 1.5rem;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-info {
-        position: static;
-    }
+    .contact { padding: 4rem 1.25rem; }
+    .contact-content { grid-template-columns: 1fr; }
+    .contact-info { position: static; }
 }

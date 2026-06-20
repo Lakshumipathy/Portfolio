@@ -6,13 +6,11 @@ const Hero = () => {
     <section id="home" className="hero">
       <div className="hero-content">
         <div className="hero-text">
-          
+          <div className="hero-overline">Portfolio</div>
           <h1 className="hero-name">
             Lakshumipathy R<span className="name-dot">.</span>
           </h1>
           <h2 className="hero-role">
-           
-            
             <span className="role-text">Aspiring Full Stack Developer</span>
           </h2>
           <p className="hero-description">

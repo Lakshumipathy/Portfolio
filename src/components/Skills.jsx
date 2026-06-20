@@ -16,14 +16,14 @@ const Skills = () => {
         {
             icon: <Wrench size={32} />,
             title: 'Tools & Technologies',
-            skills: ['Node.js', 'MySQL', 'Supabase', 'Power BI']
+            skills: ['Git', 'GitHub', 'MySQL', 'Supabase', 'Power BI']
         }
     ];
 
     return (
         <section id="skills" className="skills">
             <div className="skills-container">
-                <div className="section-header">
+                <div className="section-header reveal">
                     <h2 className="section-title">Skills & Technologies</h2>
                     <p className="section-subtitle">My technical expertise and toolset</p>
                 </div>

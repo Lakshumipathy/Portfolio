@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,6 +11,23 @@ import ParticleBackground from './components/ParticleBackground';
 import './App.css';
 
 function App() {
+    // Global scroll-reveal observer
+    useEffect(() => {
+        const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            },
+            { threshold: 0.12 }
+        );
+        revealEls.forEach((el) => observer.observe(el));
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <div className="App">
             <ParticleBackground />

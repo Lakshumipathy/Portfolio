@@ -1,5 +1,5 @@
 import './About.css';
-import profileImage from '../assets/profile.jpg';
+import profileImage from '../assets/profile.png';
 
 const About = () => {
 
@@ -8,7 +8,7 @@ const About = () => {
         <section id="about" className="about">
             <div className="about-container">
                 {/* Section Header */}
-                <div className="section-header">
+                <div className="section-header reveal">
                     <h2 className="section-title">About Me</h2>
                     
                 </div>
@@ -18,7 +18,7 @@ const About = () => {
                     <div className="about-left">
                         <div className="about-avatar-wrapper">
                             <div className="about-avatar">
-                                <img src={profileImage} alt="Lakshumipathy R" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+                                <img src={profileImage} alt="Lakshumipathy R" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 43%', borderRadius: '50%' }} />
                             </div>
                             <div className="avatar-ring" />
                             <div className="avatar-glow" />
@@ -27,7 +27,7 @@ const About = () => {
 
                     {/* Right — Bio & Highlights */}
                     <div className="about-right">
-                        <div className="about-bio">
+                        <div className="about-bio reveal-right">
                             <h3 className="bio-greeting">Hey there! I'm <span className="bio-name">Lakshumipathy R</span></h3>
                             <p className="bio-text">
                                 I'm an enthusiastic undergraduate student pursuing a degree in Artificial Intelligence
