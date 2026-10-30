@@ -18,7 +18,7 @@ const About = () => {
                     <div className="about-left">
                         <div className="about-avatar-wrapper">
                             <div className="about-avatar">
-                                <img src={profileImage} alt="Lakshumipathy R" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 43%', borderRadius: '50%' }} />
+                                <img src={profileImage} alt="Lakshumipathy R" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 5%', borderRadius: '50%' }} />
                             </div>
                             <div className="avatar-ring" />
                             <div className="avatar-glow" />
