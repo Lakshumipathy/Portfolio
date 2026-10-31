@@ -24,7 +24,7 @@ const Projects = () => {
             description: 'An intelligent system to track and analyze academic performance, providing insights and predictions to help students improve their grades.',
             techStack: ['React', 'TypeScript', 'Node.js', 'Supabase'],
             category: 'Web Application',
-            githubLink: 'https://github.com/Lakshumipathy/EduGrade.co'
+            githubLink: 'https://github.com/Lakshumipathy/Edugrade.in'
         }
     ];
 
